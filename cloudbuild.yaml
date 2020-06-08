@@ -1,10 +1,4 @@
 steps:
-    - id: "Montando imagem Docker"
-      name: "gcr.io/cloud-builders/docker"
-      args: ["docker", "-t", "app", "."
-    # - name: golang
-    #   args: ['go', 'build', '.']
-    # artifacts:
-    #   objects:
-    #     location: '[STORAGE_LOCATION]'
-    #     paths: ['[ARTIFACT_PATH]']
+  - id: "Montando imagem Docker"
+    name: "gcr.io/cloud-builders/docker"
+    args: ["docker", "-t", "app", "."]
