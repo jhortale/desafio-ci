@@ -1,20 +1,21 @@
 FROM golang:alpine AS builder
 
-RUN apk add upx
+# RUN apk add upx
 
-WORKDIR /build
+# WORKDIR /build
 
 COPY . .
 
-RUN go build -o sum -a -ldflags="-s -w" -installsuffix cgo && \
-    upx --ultra-brute -qq sum && \
-    upx -t sum
+# RUN go build -o sum -a -ldflags="-s -w" -installsuffix cgo && \
+#     upx --ultra-brute -qq sum && \
+#     upx -t sum
+RUN GOOS=linux go build -ldflags="-s -w" sum.go
 
-WORKDIR /bin
-RUN cp /build/sum ./sum
+# WORKDIR /bin
+# RUN cp /build/sum ./sum
 
 FROM scratch
 
-COPY --from=builder /bin .
+COPY --from=builder /go/sum .
 
 ENTRYPOINT ["./sum"]
