@@ -11,11 +11,12 @@ COPY sum.go .
 #     upx -t sum
 RUN GOOS=linux go build -ldflags="-s -w" sum.go
 RUN ls
+ENTRYPOINT ["./sum"]
 # WORKDIR /bin
 # RUN cp /build/sum ./sum
 
-FROM scratch
+# FROM scratch
 
-COPY --from=builder /go/src/app/sum .
-RUN pwd
-ENTRYPOINT ["/sum"]
+# COPY --from=builder /go/src/app/sum .
+# RUN pwd
+# ENTRYPOINT ["/sum"]
