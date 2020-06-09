@@ -1,4 +1,9 @@
 steps:
   - id: "Montando imagem Docker"
     name: "gcr.io/cloud-builders/docker"
-    args: ["docker", "build", "-t", "golangimagem", "."]
+    args: ["build", "-t", "gcr.io/$PROJECT_ID/desafio_ci:latest", "."]
+
+  - id: "Compilando Golang"
+    name: "gcr.io/cloud-builders/go"
+    # env: ["GOPATH=."]
+    args: ["run", "./sum"]
