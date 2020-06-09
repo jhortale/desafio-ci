@@ -2,7 +2,7 @@ FROM golang:alpine AS builder
 
 # RUN apk add upx
 
-WORKDIR /go
+WORKDIR /go/src
 
 COPY sum.go .
 
@@ -11,7 +11,6 @@ COPY sum.go .
 #     upx -t sum
 RUN GOOS=linux go build -ldflags="-s -w" sum.go
 RUN ls
-COPY /go /go/src
 ENTRYPOINT ["./sum"]
 # WORKDIR /bin
 # RUN cp /build/sum ./sum
