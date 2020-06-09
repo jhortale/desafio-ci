@@ -17,4 +17,4 @@ FROM scratch
 
 COPY --from=builder /bin .
 
-#ENTRYPOINT ["./sum"]
+ENTRYPOINT ["./sum"]
