@@ -10,6 +10,7 @@ COPY . .
 #     upx --ultra-brute -qq sum && \
 #     upx -t sum
 RUN GOOS=linux go build -ldflags="-s -w" sum.go
+RUN ls
 
 # WORKDIR /bin
 # RUN cp /build/sum ./sum
