@@ -17,5 +17,5 @@ RUN ls
 FROM scratch
 
 COPY --from=builder /go/src/app/sum .
-
+RUN ls
 ENTRYPOINT ["/sum"]
