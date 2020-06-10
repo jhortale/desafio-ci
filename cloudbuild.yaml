@@ -1,12 +1,3 @@
-# steps:
-#   - id: "Montando imagem Docker"
-#     name: "gcr.io/cloud-builders/docker"
-#     args: ["build", "-t", "gcr.io/$PROJECT_ID/desafio_ci:latest", "."]
-
-#   - id: "Compilando Golang"
-#     name: "gcr.io/cloud-builders/go"
-#     env: ["GOPATH=/go"]
-#     args: ["run", "sum"]
 steps:
   - id: "Compilando Golang"
     name: "gcr.io/cloud-builders/go"
@@ -15,8 +6,8 @@ steps:
 
   - id: "Rodando Teste da aplicação"
     name: "gcr.io/cloud-builders/go"
-    args: ["test", "-run", "TestAdd"]
-    env: ["GOPATH=/go/src/sum"]
+    args: ["test", "-run", "TestSum"]
+    env: ["GOPATH=./go/src/sum"]
 
   - id: "Montando imagem Docker"
     name: "gcr.io/cloud-builders/docker"
