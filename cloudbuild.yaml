@@ -16,7 +16,7 @@ steps:
   - id: "Rodando Teste da aplicação"
     name: "gcr.io/cloud-builders/go"
     args: ["test", "-run", "TestAdd"]
-    env: ["GOPATH=."]
+    env: ["GOPATH=/go/src/sum"]
 
   - id: "Montando imagem Docker"
     name: "gcr.io/cloud-builders/docker"
