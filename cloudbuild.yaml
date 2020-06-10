@@ -22,10 +22,10 @@ steps:
     args: ["test", "./src/sum"]
     env: ["GOPATH=."]
 
-  # - id: go_build
-  #   name: 'gcr.io/cloud-builders/go'
-  #   args: ['build', '-o', './src/docker/challenge03-CI-Go/src/soma', './devops/docker/challenge03-CI-Go/src/soma']
-  #   env: ['GOPATH=.']
+  - id: go_build
+    name: "gcr.io/cloud-builders/go"
+    args: ["build", "-o", "./src/sum", "./src/sum"]
+    env: ["GOPATH=."]
 
   # - id: docker_build
   #   name: 'gcr.io/cloud-builders/docker'
