@@ -14,10 +14,10 @@ package main
 
 import "testing"
 
-func TestAdd(t *testing.T) {
-	result := add(5, 5)
+func TestSum(t *testing.T) {
+	result := sum(5, 5)
 	expected := 10
 	if result != expected {
-		t.Errorf("add() test returned an unexpected result: got %v want %v", result, expected)
+		t.Errorf("sum() test returned an unexpected result: got %v want %v", result, expected)
 	}
 }
